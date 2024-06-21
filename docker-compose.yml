@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  fintachartrestapi:
+    container_name: fintachart
+    build:
+      context: .
+      dockerfile: FintachartRestApi/Dockerfile
+    ports:
+      - 5555:443 
+    depends_on:
+      - mongocont
+  mongocont:
+    container_name: mongocont
+    image: mongo:latest
+    ports:
+      - 27017:27017 
